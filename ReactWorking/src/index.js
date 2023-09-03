@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 
 //Objects
-import AllRoad from "./AllRoad";
+import AllRoad from "./Objects/AllRoad";
 
 //JS scripts
-import RoadCreator from "./RoadCreator";
+import RoadCreator from "./Utilities/RoadCreator";
 
 const root = ReactDOM.createRoot(document.getElementById('WelcomeDiv'));
 

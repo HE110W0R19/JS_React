@@ -1,17 +1,26 @@
 body{
-    background-image: linear-gradient(to bottom, rgb(239, 253, 255), #000000);
+    background-image: linear-gradient(to bottom, rgb(236, 255, 253), #000000);
 }
 
 #GameField{
-    margin-left: 140px;
+    margin-left: 85px;
     margin-top: 200px;
-    height: 300px;
-    width: 950px;
+    height: 270px;
+    width: 840px;
 }
 
 #samurai{
-    height: 40px;
-    width: 20px;
+    height: 55px;
+    width: 30px;
+    /*position: fixed;
+    left: 270px;
+    height: 60px;
+    width: 30px;*/
+}
+
+#bird{
+    height: 50px;
+    width: 40px;
     /*position: fixed;
     left: 270px;
     height: 60px;
@@ -25,7 +34,7 @@ body{
 }
 
 #ground{
-    height: 40px;
+    height: 60px;
     width: 65px;
     /*height: 20px;
     width: 250px;
@@ -34,8 +43,8 @@ body{
 }
 
 #cactus{
-    height: 40px;
-    width: 20px;
+    height: 35px;
+    width: 15px;
     /*position: fixed;
     top: 210px;
     left: 550px;
@@ -49,8 +58,8 @@ table{
 
 td{
     align-content: center;
-    height: 40px;
-    width: 65px;
+    height: 60px;
+    width: 45px;
     padding: 0px;
     border: 0px;
 
