@@ -1,17 +1,17 @@
 body{
-    background-image: linear-gradient(to bottom, rgb(236, 255, 253), #000000);
+    background-image: url("../../public/Images/Background/JapanTown.gif");
+    background-size: cover
 }
 
 #GameField{
-    margin-left: 85px;
-    margin-top: 200px;
-    height: 270px;
+    margin: 420px auto auto;
+    height: 85px;
     width: 840px;
 }
 
 #samurai{
-    height: 55px;
-    width: 30px;
+    height: 65px;
+    width: 40px;
     /*position: fixed;
     left: 270px;
     height: 60px;
@@ -19,8 +19,8 @@ body{
 }
 
 #bird{
-    height: 50px;
-    width: 40px;
+    height: 80px;
+    width: 50px;
     /*position: fixed;
     left: 270px;
     height: 60px;
@@ -34,8 +34,8 @@ body{
 }
 
 #ground{
-    height: 60px;
-    width: 65px;
+    height: 70px;
+    width: 75px;
     /*height: 20px;
     width: 250px;
     border-top: 1px solid black;
@@ -43,8 +43,8 @@ body{
 }
 
 #cactus{
-    height: 35px;
-    width: 15px;
+    height: 45px;
+    width: 25px;
     /*position: fixed;
     top: 210px;
     left: 550px;
@@ -58,10 +58,10 @@ table{
 
 td{
     align-content: center;
-    height: 60px;
-    width: 45px;
+    height: 85px;
+    width: 55px;
     padding: 0px;
     border: 0px;
 
-    border-bottom: 2px solid #483611;
+    border-bottom: 3px solid #483611;
 }
