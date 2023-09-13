@@ -2,7 +2,8 @@ import {useState} from "react";
 
 //Style
 import '../Styles/style.css';
-function Samurai(){
+
+function Samurai({samuraiRef}) {
     const animationArr = [
         "Images/Samurai/Samurai_Run_Image1.png",
         "Images/Samurai/Samurai_Run_Image2.png",
@@ -15,19 +16,21 @@ function Samurai(){
 
     const [url, setUrl] = useState(animationArr[currentFrameSource])
 
-    setTimeout(args => {
+    setTimeout(() => {
         let animIndex = currentFrameSource + 1;
-        if(animIndex == animationArr.length){
+        if (animIndex === animationArr.length) {
             animIndex = 0;
         }
         setCurrentFrameSource(animIndex)
         setUrl(animationArr[animIndex])
-    }, 80)
+    }, 95)
+
     return (
-        <td>
+        <td ref={samuraiRef} id={"samuraiTd"}>
             <img id={"samurai"} src={url}></img>
         </td>
     )
 }
+
 
 export default Samurai

@@ -2,9 +2,9 @@ import {useRef} from "react";
 //Style
 import '../Styles/style.css';
 
-function Cactus({GetTdAction, time}){
+function Sponge({GetTdAction, time}){
 
-    const cactusRef = useRef(null)
+    const spongeRef = useRef(null)
 
     /*setTimeout(()=>{
         if(cactusRef.current != null){
@@ -13,7 +13,7 @@ function Cactus({GetTdAction, time}){
     }, 500)*/
 
     function getTdSizeAction(){
-        return cactusRef.current == null ? null : cactusRef.current.offsetWidth;
+        return spongeRef.current == null ? null : spongeRef.current.offsetWidth;
     }
 
     if(GetTdAction!==undefined){
@@ -23,10 +23,10 @@ function Cactus({GetTdAction, time}){
     }
 
     return (
-        <td ref={cactusRef}>
-            <img id={"cactus"} src={"Images/Cactus.png"}></img>
+        <td ref={spongeRef}>
+            <img id={"cactus"} src={"Images/Sponge.gif"}></img>
         </td>
     )
 }
 
-export default Cactus
+export default Sponge

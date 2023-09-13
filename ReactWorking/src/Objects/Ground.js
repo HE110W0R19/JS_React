@@ -8,7 +8,7 @@ function Ground(){
             <img id={"ground"} src={"Images/Ground.png"}></img>
         </div>)*/
     return (
-            <td><img id={"ground"} src={"Images/Ground.png"}></img></td>
+            <td><img id={"ground"} src={"Images/Road.png"}></img></td>
     )
 }
 

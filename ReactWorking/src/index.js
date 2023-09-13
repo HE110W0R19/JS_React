@@ -9,8 +9,10 @@ import RoadCreator from "./Utilities/RoadCreator";
 
 const root = ReactDOM.createRoot(document.getElementById('WelcomeDiv'));
 
+let RoadArray = RoadCreator.getContent();
+
 root.render(
     <React.StrictMode>
-        <AllRoad Road = {RoadCreator.getContent()}></AllRoad>
+        <AllRoad Road={RoadArray}></AllRoad>
     </React.StrictMode>
 );
