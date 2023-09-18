@@ -3,7 +3,7 @@ import '../Styles/style.css';
 import React, {useRef, useState, useEffect} from "react";
 import CactusCreator from "../Utilities/CactusCreator";
 import Samurai from "./Samurai";
-import roadMoveLogic from "../Logics/RoadMoveLogic";
+//import roadMoveLogic from "../Logics/RoadMoveLogic";
 import BirdCreator from "../Utilities/BirdCreator";
 import Ground from "./Ground";
 
@@ -11,16 +11,16 @@ let personNeedJump = false;
 
 function AllRoad({Road}) {
 
-    const [RoadArr, setRoad] = useState(Road);
+    const [RoadArr, setRoad] = useState(Road.getContent());
     const trRef= useRef(null);
     const samuraiRef = useRef(null);
 
     let offsetRoadInterval = 0;
-    let offsetSamuraiInterval = 450;
+    let offsetSamuraiInterval = 0; //450
     let tdSize = null;
     let needNextUpdate = true;
 
-    let samuraiTopIndex = 160;
+    let samuraiTopIndex = 0; //160
 
     /*setTimeout(args => {
         setRoad(roadMoveLogic(RoadArr));
@@ -44,14 +44,14 @@ function AllRoad({Road}) {
 
             setTimeout(()=>{
 
-                if(samuraiTopIndex <= 80){
+                if(samuraiTopIndex <= -80){ //80
                     personNeedJump = false;
                 }
 
-                if (personNeedJump === true && samuraiTopIndex !== 80){
+                if (personNeedJump === true && samuraiTopIndex !== -80){ //160
                     samuraiTopIndex -= 2;
                 }
-                else if (personNeedJump === false && samuraiTopIndex !== 160) {
+                else if (personNeedJump === false && samuraiTopIndex !== 0) { //160
                     samuraiTopIndex += 2;
                 }
             }, 50);
@@ -62,7 +62,7 @@ function AllRoad({Road}) {
             if (offsetRoadInterval <= -tdSize) {
                 offsetRoadInterval += tdSize;
                 needNextUpdate = false;
-                setRoad(roadMoveLogic(RoadArr));
+                setRoad(Road.RoadMoveLogic(RoadArr));
             }
 
             samuraiRef.current.style.top = `${samuraiTopIndex}px`;
@@ -72,16 +72,12 @@ function AllRoad({Road}) {
                 samuraiRef.current.style.left = `${offsetSamuraiInterval}px`;
                 SetTrMove(time);
             }
-            else {
-                roadMoveLogic(RoadArr);
-                setRoad(roadMoveLogic(RoadArr));
-            }
         }, time)
     }
 
     useEffect(()=>{
         return ()=>{
-            samuraiRef.current.style.left = `450px`;
+            samuraiRef.current.style.left = `0px`; //450
             trRef.current.style.left = `${offsetRoadInterval}px`;
         }
     })
@@ -89,20 +85,16 @@ function AllRoad({Road}) {
     SetTrMove(10);
     let JumpEvent = (event)=> {
         /* 32 - Space button code*/
-        if (event.keyCode === 32){
-            console.log(`Samurai location: ${samuraiRef.current.style.top}`);
-            personNeedJump = true;
-        }
+        //console.log(`Samurai location: ${samuraiRef.current.style.top}`);
+        personNeedJump = true;
     }
 
-    console.log(RoadArr);
+    //console.log(RoadArr);
     return (
         <div id={"GameField"}>
             <input id={"inputForJumpPerson"} type={"textfield"} onKeyPress={JumpEvent}/>
-
             <table>
                 <tbody ref={trRef} id={"allRoadTr"}>
-                <Samurai samuraiRef={samuraiRef}></Samurai>
                     <tr>
                         <BirdCreator getTdAction={getTdSize} time={50} objectIndex={RoadArr[0]}></BirdCreator>
                         <BirdCreator objectIndex={RoadArr[1]}></BirdCreator>
@@ -141,6 +133,7 @@ function AllRoad({Road}) {
                         <CactusCreator objectIndex={RoadArr[5]}></CactusCreator>
                         <CactusCreator objectIndex={RoadArr[6]}></CactusCreator>
                         <CactusCreator objectIndex={RoadArr[7]}></CactusCreator>
+                        <Samurai samuraiRef={samuraiRef}></Samurai>
                         <CactusCreator objectIndex={RoadArr[8]}></CactusCreator>
                         <CactusCreator objectIndex={RoadArr[9]}></CactusCreator>
                         <CactusCreator objectIndex={RoadArr[10]}></CactusCreator>
